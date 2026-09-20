@@ -1,8 +1,8 @@
 local monitor = peripheral.find("monitor")
 local reactor = peripheral.wrap("fusionReactorLogicAdapter_0")
 
-if not reactor then error("융합로 어댑터를 못 찾음") end
-if not monitor then error("모니터를 못 찾음") end
+if not reactor then error("Fusion reactor adapter not found") end
+if not monitor then error("Monitor not found") end
 
 monitor.setTextScale(1)
 local w, h = monitor.getSize()
@@ -57,7 +57,7 @@ local function draw()
 
   monitor.setBackgroundColor(colors.black)
 
-  -- 열 통계
+  -- Heat stats
   monitor.setCursorPos(2, 3)
   monitor.write("Plasma " .. fmt(safe(reactor.getPlasmaTemperature)) .. "K / " .. fmt(safe(reactor.getMaxPlasmaTemperature)) .. "K")
   monitor.setCursorPos(2, 4)
@@ -65,7 +65,7 @@ local function draw()
   monitor.setCursorPos(2, 5)
   monitor.write("Ignite " .. fmt(safe(reactor.getIgnitionTemperature)) .. "K")
 
-  -- 연료 통계
+  -- Fuel stats
   local dt, dtCap = safe(reactor.getDTFuel), safe(reactor.getDTFuelCapacity)
   monitor.setCursorPos(2, 7)
   monitor.write("DT Fuel  " .. (dt and math.floor(dt) or "N/A") .. "/" .. (dtCap and math.floor(dtCap) or "N/A"))
@@ -76,7 +76,7 @@ local function draw()
   monitor.setCursorPos(2, 9)
   monitor.write("Tritium   " .. (tri and math.floor(tri) or "N/A") .. "/" .. (triCap and math.floor(triCap) or "N/A"))
 
-  -- 발전량
+  -- Power output
   monitor.setCursorPos(2, 11)
   monitor.write("Production " .. fmt(safe(reactor.getProductionRate)))
   monitor.setCursorPos(2, 12)
