@@ -11,7 +11,7 @@ local function countItem(name)
   return total
 end
 
-local itemName = "mekanism:hpde_pellet"
+local itemName = "mekanism:hdpe_pellet"
 local lastCount = countItem(itemName)
 
 monitor.setTextScale(2)
